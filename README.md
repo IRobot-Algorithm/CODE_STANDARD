@@ -6,7 +6,7 @@
 
 提交不得超过72个字符（或100个字符）。这是为了避免自动换行影响美观。`git commit`应该少量多次
 
-##### (1) type 
+#### (1) type 
 
 提交命令`git commit -m ""`
 
@@ -48,6 +48,39 @@ git commit -m "fix: use 'false' as default for 'use_sim'. Closes #234."
 - 不要提交**.vscode**等项目配置文件
 - 不要一次**大量**提交
 - ...
+
+### 1.3 .gitignore文件使用
+
+.gitignore文件应与.git文件在同一目录下，用于指示该代码哪些文件不需要追踪修改、不需要提交。
+
+#### (1)示例
+
+``` 
+# .gitignore
+
+# 项目配置文件
+.vscode/*
+
+# 编译后的二进制文件
+build/*
+install/*
+log/*
+```
+
+ .gitignore文件可以手动编写指定文件路径，也可以在vscode->Source Control->Changes右键文件点击Add to .gitignore将其添加到.gitignore
+
+#### (2).gitignore不工作
+
+修改.gitignore后对文件的跟踪可能与修改前效果一样，这是因为仓库中的文件仍然遵循上次.gitignore中的规则，可以`git commit`后在终端用以下命令
+
+``` 
+git rm -rf --cached .
+git add .
+```
+
+这将从存储库中删除所有文件并将其重新添加回存储库（这一次遵循新.gitignore中的规则）
+
+
 
 ## 2. 代码规范
 
