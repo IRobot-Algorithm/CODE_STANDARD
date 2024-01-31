@@ -8,8 +8,6 @@
 
 #### (1) type 
 
-提交命令`git commit -m ""`
-
 每次提交都要在双引号内说明type
 
 ```markdown
@@ -30,15 +28,12 @@
 git add .
 git commit -m "docs : add email."
 
-git add .
 # 此处scope 为Detector模块
 git commit -m "docs(Detector) : add mising dependencies."
 
-git add .
 # 此处scope 为影响编译
 git commit -m "feat($compile) : add tracking model in the detector moudle."
 
-git add .
 git commit -m "fix: use 'false' as default for 'use_sim'. Closes #234."
 ```
 
