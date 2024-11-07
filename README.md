@@ -349,40 +349,134 @@ double bs_coeff;        // 弹速系数
 */
 ```
 
-## 代码风格规范（基于 Google 风格）
+## 3.代码风格规范（基于 Google 风格）
 
-参加CODE_STADARD中`.clang-format`
+使用`CODE_STADARD`仓库中`.clang-format`文件
 
 - **语言**：C++
 - **基础风格**：Google
 
-#### 格式规范
+### 3.1 格式规范
 
-- **访问修饰符缩进**（`AccessModifierOffset`）：设置为 `-2`，即访问修饰符（如 `public`、`protected`、`private`）向左缩进 2 个空格。
-- **括号对齐**（`AlignAfterOpenBracket`）：将括号内的内容对齐。
-- **操作符对齐**（`AlignOperands`）：开启，将行内的操作符对齐。
-- **允许所有参数声明在下一行**（`AllowAllParametersOfDeclarationOnNextLine`）：设置为 `true`，允许函数声明的参数可以放置在下一行。
-- **在构造函数初始化器前换行**（`BreakConstructorInitializersBeforeComma`）：设置为 `true`，在构造函数的初始化列表中，每个成员初始化器的逗号前换行。
-- **函数参数的多行换行**（`BinPackArguments`）：设置为 `true`，允许函数调用的参数放在同一行，减少换行。
-- **函数声明参数的多行换行**（`BinPackParameters`）：设置为 `false`，函数声明中的参数不允许挤在同一行，鼓励换行对齐。
+#### 3.1.1 访问修饰符缩进
 
-#### 括号换行规则（`BraceWrapping`）
+**总述**
 
-- **类定义后**（`AfterClass`）：设置为 `false`，类定义不另起一行 `{`。
-- **函数定义后**（`AfterFunction`）：设置为 `false`，函数定义不另起一行 `{`。
-- **命名空间后**（`AfterNamespace`）：设置为 `false`，命名空间定义不另起一行 `{`。
-- **结构体定义后**（`AfterStruct`）：设置为 `false`，结构体定义不另起一行 `{`。
+设置 `AccessModifierOffset` 为 `-2`，即访问修饰符（如 `public`、`protected`、`private`）向左缩进 2 个空格。
 
-#### 其他格式设置
+#### 3.1.2 括号对齐
 
-- **大括号换行方式**（`BreakBeforeBraces`）：设置为 `Custom`，使用自定义的换行规则。
-- **列宽限制**（`ColumnLimit`）：设置为 `100`，限制代码每行最长 100 个字符。
-- **构造函数初始化器的缩进宽度**（`ConstructorInitializerIndentWidth`）：设置为 `0`，构造函数初始化器无额外缩进。
-- **续行缩进宽度**（`ContinuationIndentWidth`）：设置为 `2`，行持续缩进（如换行后的缩进）为 2 个空格。
-- **指针对齐方式**（`PointerAlignment`）：设置为 `Right`，指针符号 `*` 右对齐到变量名。
-- **派生指针对齐**（`DerivePointerAlignment`）：设置为 `false`，不自动推导指针对齐方式。
-- **注释换行**（`ReflowComments`）：设置为 `false`，不自动对注释进行换行处理。
+**总述**
 
+设置 `AlignAfterOpenBracket` 为 `Align`，将括号内的内容对齐。
+
+#### 3.1.3 操作符对齐
+
+**总述**
+
+设置 `AlignOperands` 为 `true`，在多行表达式中对齐操作符。
+
+#### 3.1.4 参数换行规则
+
+**总述**
+
+允许所有参数声明可以放置在下一行。
+
+**说明**
+
+设置 `AllowAllParametersOfDeclarationOnNextLine` 为 `true`，使函数声明的参数可以在新的一行对齐，提升代码的可读性。
+
+#### 3.1.5 构造函数初始化列表换行
+
+**总述**
+
+构造函数初始化列表中的逗号前换行。
+
+**说明**
+
+设置 `BreakConstructorInitializersBeforeComma` 为 `true`，在构造函数初始化列表中，每个成员初始化器的逗号前换行。
+
+#### 3.1.6 函数调用参数排列
+
+**总述**
+
+设置 `BinPackArguments` 为 `true`，允许将函数调用的参数放在同一行，以减少换行。
+
+#### 3.1.7 函数声明参数排列
+
+**总述**
+
+设置 `BinPackParameters` 为 `false`，函数声明中的参数不允许放在同一行，鼓励换行对齐提升可读性。
+
+### 3.2 括号换行规则
+
+#### 3.2.1 类定义后的大括号
+
+**总述**
+
+设置 `AfterClass` 为 `false`，类定义后不另起一行 `{`。
+
+#### 3.2.2 函数定义后的大括号
+
+**总述**
+
+设置 `AfterFunction` 为 `false`，函数定义后不另起一行 `{`。
+
+#### 3.2.3 命名空间定义后的大括号
+
+**总述**
+
+设置 `AfterNamespace` 为 `false`，命名空间定义后不另起一行 `{`。
+
+#### 3.2.4 结构体定义后的大括号
+
+**总述**
+
+设置 `AfterStruct` 为 `false`，结构体定义后不另起一行 `{`。
+
+### 3.3 其他格式设置
+
+#### 3.3.1 大括号换行方式
+
+**总述**
+
+设置 `BreakBeforeBraces` 为 `Custom`，使用自定义的换行规则。
+
+#### 3.3.2 列宽限制
+
+**总述**
+
+设置 `ColumnLimit` 为 `100`，限制代码每行最长为 100 个字符。
+
+#### 3.3.3 构造函数初始化器缩进宽度
+
+**总述**
+
+设置 `ConstructorInitializerIndentWidth` 为 `0`，构造函数初始化器无额外缩进。
+
+#### 3.3.4 续行缩进宽度
+
+**总述**
+
+设置 `ContinuationIndentWidth` 为 `2`，行持续缩进（如换行后的缩进）为 2 个空格。
+
+#### 3.3.5 指针对齐方式
+
+**总述**
+
+设置 `PointerAlignment` 为 `Right`，指针符号 `*` 右对齐到变量名。
+
+#### 3.3.6 自动推导指针对齐方式
+
+**总述**
+
+设置 `DerivePointerAlignment` 为 `false`，不自动推导指针对齐方式。
+
+#### 3.3.7 注释换行
+
+**总述**
+
+设置 `ReflowComments` 为 `false`，不自动对注释进行换行处理。
 ## Acknowledgements
 
 ​	我们参考了[阮一峰的网络日志](https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)中关于git commit message的部分以及2023年IRobot视觉组代码规范部分。
